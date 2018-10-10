@@ -170,6 +170,14 @@ private:
       if (property->atType != nullptr) {
         prop["@type"] = property->atType;
       }
+      if (property->label != nullptr) {
+       prop["label"] = property->label;
+      }
+      if (property->unit != nullptr) {
+       prop["unit"] = property->unit;
+      }
+      prop["readOnly"] = property->readOnly;
+
       prop["href"] = "/things/" + device->id + "/properties/" + property->id;
       property = property->next;
     }
@@ -208,7 +216,7 @@ private:
       prop[property->id] = *property->getValue().string;
       break;
     }
-
+    
     prop.printTo(*response);
     request->send(response);
   }

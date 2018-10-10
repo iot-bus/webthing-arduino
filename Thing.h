@@ -30,13 +30,19 @@ public:
   String description;
   ThingPropertyType type;
   String atType;
+  String label;
+  String unit;
+  bool readOnly;
   ThingProperty* next = nullptr;
 
-  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_):
+  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_ = nullptr, const char* unit_ = nullptr, bool readOnly_ = false):
     id(id_),
     description(description_),
     type(type_),
-    atType(atType_) {
+    atType(atType_),
+    unit(unit_),
+    label(label_),
+    readOnly(readOnly_)  {
   }
 
   void setValue(ThingPropertyValue newValue) {
@@ -46,7 +52,7 @@ public:
   ThingPropertyValue getValue() {
     return this->value;
   }
-
+  
 private:
   ThingPropertyValue value = {false};
 };
