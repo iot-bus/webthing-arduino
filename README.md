@@ -1,6 +1,8 @@
 webthing-arduino
 ================
 
+This fork supports Label and Unit properties. See IoT-Bus_DHT11_Thing example (requires IoT-BUs, IoT-Bus Display and DHT11).
+
 A simple server for the ESP8266, the ESP32, or any WiFi101-compatible board
 that implements Mozilla's proposed Web of Things API. The [LED
 example](https://github.com/mozilla-iot/webthing-arduino/blob/master/examples/LED)
