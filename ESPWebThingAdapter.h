@@ -176,7 +176,7 @@ private:
       if (property->unit != nullptr) {
        prop["unit"] = property->unit;
       }
-      prop["readOnly"] = property->readOnly;
+      prop["writable"] = property->writable;
 
       prop["href"] = "/things/" + device->id + "/properties/" + property->id;
       property = property->next;

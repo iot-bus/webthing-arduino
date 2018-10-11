@@ -32,17 +32,17 @@ public:
   String atType;
   String label;
   String unit;
-  bool readOnly;
+  bool writable;
   ThingProperty* next = nullptr;
 
-  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_ = nullptr, const char* unit_ = nullptr, bool readOnly_ = false):
+  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_ = nullptr, const char* unit_ = nullptr, bool writable_ = false):
     id(id_),
     description(description_),
     type(type_),
     atType(atType_),
     unit(unit_),
     label(label_),
-    readOnly(readOnly_)  {
+    writable(writable_)  {
   }
 
   void setValue(ThingPropertyValue newValue) {
