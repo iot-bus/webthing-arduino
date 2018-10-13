@@ -86,8 +86,8 @@ public:
   }
 
 private:
-  AsyncWebServer server;
   String name;
+  AsyncWebServer server;
   String ip;
   ThingDevice* firstDevice = nullptr;
   ThingDevice* lastDevice = nullptr;
