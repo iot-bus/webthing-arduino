@@ -31,7 +31,7 @@ public:
   ThingPropertyType type;
   String atType;
   String label = "";
-  String unit = nullptr;
+  String unit = "";
   bool writable = true;
   ThingProperty* next = nullptr;
 
