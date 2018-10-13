@@ -30,18 +30,18 @@ public:
   String description;
   ThingPropertyType type;
   String atType;
-  String label;
-  String unit;
-  bool writable;
+  String label = nullptr;
+  String unit = nullptr;
+  bool writable = true;
   ThingProperty* next = nullptr;
 
-  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_ = nullptr, const char* unit_ = nullptr, bool writable_ = false):
+  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_, const char* unit_, bool writable_):
     id(id_),
     description(description_),
     type(type_),
     atType(atType_),
-    unit(unit_),
     label(label_),
+    unit(unit_),
     writable(writable_)  {
   }
 
