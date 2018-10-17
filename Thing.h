@@ -35,7 +35,7 @@ public:
   bool writable = true;
   ThingProperty* next = nullptr;
 
-  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_, const char* unit_, bool writable_):
+ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_, const char* unit_, bool writable_):
     id(id_),
     description(description_),
     type(type_),
@@ -43,6 +43,13 @@ public:
     label(label_),
     unit(unit_),
     writable(writable_)  {
+  }
+  
+ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_):
+    id(id_),
+    description(description_),
+    type(type_),
+    atType(atType_) {
   }
 
   void setValue(ThingPropertyValue newValue) {
