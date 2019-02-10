@@ -24,6 +24,9 @@ union ThingPropertyValue {
   String* string;
 };
 
+class WebThingAdapter;
+class ThingDevice;
+
 class ThingProperty {
 public:
   String id;
@@ -35,7 +38,7 @@ public:
   bool writable = true;
   ThingProperty* next = nullptr;
 
-ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_, const char* unit_, bool writable_):
+  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_, const char* unit_, bool writable_):
     id(id_),
     description(description_),
     type(type_),
@@ -44,13 +47,24 @@ ThingProperty(const char* id_, const char* description_, ThingPropertyType type_
     unit(unit_),
     writable(writable_)  {
   }
+
+  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_, const char* label_, const char* unit_):
+    id(id_),
+    description(description_),
+    type(type_),
+    atType(atType_),
+    label(label_) {
+  }  
   
-ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_):
+  ThingProperty(const char* id_, const char* description_, ThingPropertyType type_, const char* atType_):
     id(id_),
     description(description_),
     type(type_),
     atType(atType_) {
   }
+
+  // overloaded to reference device
+  ThingProperty(ThingDevice* device, const char* id_, const char* description_, ThingPropertyType type_, const char* atType_);  
 
   void setValue(ThingPropertyValue newValue) {
     this->value = newValue;
@@ -78,6 +92,9 @@ public:
     name(_name),
     type(_type) {
   }
+
+  ThingDevice(WebThingAdapter* adapter, const char* _id, const char* _name, const char** _type);
+
 
   void addProperty(ThingProperty* property) {
     if (lastProperty == nullptr) {
